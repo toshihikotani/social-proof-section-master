@@ -1,0 +1,28 @@
+@import url('typography.css');
+
+// COLORS
+
+// PRIMARY
+$very-dark-magenta: hsl(300, 43%, 22%);
+$soft-pink: hsl(333, 80%, 67%);
+
+// NEUTRAL 
+$dark-grayish-magenta: hsl(303, 10%, 53%);
+$light-grayish-magenta: hsl(300, 24%, 96%);
+$white: hsl(0, 0%, 100%);
+
+html, body {
+    min-width: 100vw;
+}
+
+body {
+    min-height: 100vh;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    width: 375px;
+}
