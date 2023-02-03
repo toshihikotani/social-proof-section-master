@@ -11,11 +11,22 @@ $dark-grayish-magenta: hsl(303, 10%, 53%);
 $light-grayish-magenta: hsl(300, 24%, 96%);
 $white: hsl(0, 0%, 100%);
 
+// MIXINS
+@mixin setFontStyle($fontFamily, $fontSize:15px, $color){
+    font-family: $fontFamily;
+    font-size: $fontSize;
+    color: $color;
+}
+
+/* COMMON */
 html, body {
     min-width: 100vw;
 }
 
 body {
+    background: url('../images/bg-pattern-top-mobile.svg') center top no-repeat, 
+    url('../images/bg-pattern-bottom-mobile.svg') center bottom no-repeat;
+    background-color: $white;
     min-height: 100vh;
     font-size: 15px;
     display: flex;
@@ -23,6 +34,169 @@ body {
     align-items: center;
 }
 
+/* MAIN */
 main {
     width: 375px;
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas: 
+    'products-brief'
+    'rating'
+    'user-comment';
+
+    /* PRODUCTS BRIEF SECTION */
+    .products-brief-section {
+        grid-area: products-brief;
+        text-align: center;
+        margin: 40px auto 10px;  
+        width: 90%;
+
+        h1 {
+            @include setFontStyle('Spartan-Bold', 1.90rem, $very-dark-magenta);
+            line-height: 35px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            @include setFontStyle('Spartan-Medium', 0.90rem, $dark-grayish-magenta);
+            line-height: 25px;
+        }
+    }
+
+    /* RATINGS SECTION */
+    .rating-section {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        grid-area: rating;
+        display: grid;
+        row-gap: 16px;
+        grid-template-rows: repeat(3, auto);
+        grid-template-columns: repeat(3, auto);
+        grid-template-areas: 
+        '. reviews .'
+        '. report .'
+        '. tech .';
+        
+
+        .rating-box {
+            text-align: center;
+            width: 330px;
+            height: 50px;
+            padding: 14px 0px;
+            background-color: $light-grayish-magenta;
+            border-radius: 5px;
+
+            .star-icons {
+                .icon {
+                    content: url('../images/icon-star.svg');
+                }
+            }
+
+            &:first-child {
+                grid-area: reviews;
+            }
+
+            &:nth-child(2){
+                grid-area: report;
+            }
+
+            &:last-child {
+                grid-area: tech;
+            }
+
+            h4 {             
+                @include setFontStyle('Spartan-Bold', 0.80rem,  $very-dark-magenta);
+                margin: 12px;
+            }
+        }
+    }
+
+    /* USER COMMENT SECTION */
+    .user-comment-section {
+        margin-top: 28px;
+        grid-area: user-comment;
+        display: grid;
+        row-gap: 16px;
+        grid-template-rows: repeat(3, auto);
+        grid-template-columns: repeat(3, auto);
+        grid-template-areas: 
+        '. colton .'
+        '. irene .'
+        '. anne .';
+
+        .user-comment-box {
+            width: 265px;
+            height: 170px;
+            padding: 40px 30px;
+            background-color: $very-dark-magenta;
+            border-radius: 10px;
+
+            &:first-child {
+                grid-area: colton;
+            }
+
+            &:nth-child(2){
+                grid-area: irene;
+            }
+
+            &:last-child {
+                grid-area: anne;
+            }
+
+            header {
+                display: flex;
+                flex-direction: row;
+                justify-content: start;
+                margin-bottom: 24px;
+
+                img {
+                    width: 42px;
+                    height: 42px;
+                    border-radius: 50px;
+                    margin-right: 12px;
+                }
+
+                .user-profile {
+                    
+                   .user-name {          
+                    @include setFontStyle('Spartan-Bold', null,  $white);
+                    margin: 4px 0px 4px 12px;
+                   }
+
+                   .user-occupation {
+                    @include setFontStyle('Spartan-Regular', null,  $soft-pink);
+                    margin: 4px 0px 0px 12px;
+                   }
+                }
+            }
+
+            p {
+                @include setFontStyle('Spartan-Regular', 0.80rem,  $white);
+                line-height: 22px;
+            }
+        }
+    } 
+
+}
+
+/* MEDIA SCREEN */
+
+/* PORTRAIT TABLETS */
+@media only screen and (min-width:600px){
+
+}
+
+/* LANDSCAPE TABLETS */
+@media only screen and (min-width:768px){
+    
+}
+
+/* LAPTOP/DESKTOP */
+@media only screen and (min-width:992px){
+    
+}
+
+/* LARGE LAPTOP/DESKTOP */
+@media only screen and (min-width:1200px){
+    
 }
