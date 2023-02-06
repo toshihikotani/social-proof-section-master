@@ -60,6 +60,8 @@ main .rating-section .rating-box {
   padding: 14px 0px;
   background-color: hsl(300deg, 24%, 96%);
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
 }
 main .rating-section .rating-box .star-icons .icon {
   content: url("../images/icon-star.svg");
@@ -136,6 +138,98 @@ main .user-comment-section .user-comment-box p {
 /* MEDIA SCREEN */
 /* PORTRAIT TABLETS */
 /* LANDSCAPE TABLETS */
+@media only screen and (min-width: 768px) {
+  /* COMMON */
+  body {
+    background: url("../images/bg-pattern-top-desktop.svg") left top no-repeat, url("../images/bg-pattern-bottom-desktop.svg") right bottom no-repeat;
+  }
+  /* MAIN */
+  main {
+    width: 1220px;
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: 490px 80px 550px;
+    grid-template-areas: "products-brief . rating" "user-comment user-comment user-comment";
+    /* PRODUCTS BRIEF SECTION */
+    /* RATINGS SECTION */
+    /* USER COMMENT SECTION */
+  }
+  main .products-brief-section {
+    text-align: left;
+    margin: 90px 0px 10px;
+  }
+  main .products-brief-section h1 {
+    font-family: "Spartan-Bold";
+    font-size: 2.85rem;
+    color: hsl(300deg, 43%, 22%);
+    line-height: 45px;
+    margin-bottom: 18px;
+  }
+  main .products-brief-section p {
+    font-family: "Spartan-Medium";
+    font-size: 0.9rem;
+    color: hsl(303deg, 10%, 53%);
+  }
+  main .rating-section {
+    width: 550px;
+    margin-top: 140px;
+    margin-bottom: 50px;
+    display: grid;
+    row-gap: 14px;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: repeat(3, 180px);
+    grid-template-areas: "reviews reviews ." "report report report" ". tech tech";
+  }
+  main .rating-section .rating-box {
+    text-align: center;
+    width: 400px;
+    height: 20px;
+    padding: 20px 40px 20px 0px;
+    flex-direction: row;
+    justify-content: center;
+  }
+  main .rating-section .rating-box h4 {
+    font-family: "Spartan-Bold";
+    font-size: 0.8rem;
+    color: hsl(300deg, 43%, 22%);
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: 30px;
+  }
+  main .user-comment-section {
+    margin-top: 28px;
+    display: grid;
+    row-gap: 16px;
+    column-gap: 16px;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: repeat(3, auto);
+    grid-template-areas: "colton . ." "colton irene anne" ". . anne";
+  }
+  main .user-comment-section .user-comment-box {
+    width: 290px;
+    height: 160px;
+  }
+  main .user-comment-section .user-comment-box header {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    margin-bottom: 24px;
+  }
+  main .user-comment-section .user-comment-box header img {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+  }
+  main .user-comment-section .user-comment-box header .user-profile .user-name {
+    font-family: "Spartan-Bold";
+    color: hsl(0deg, 0%, 100%);
+    margin: 6px 0px 4px 12px;
+  }
+  main .user-comment-section .user-comment-box header .user-profile .user-occupation {
+    font-family: "Spartan-Regular";
+    color: hsl(333deg, 80%, 67%);
+    margin: 4px 0px 0px 12px;
+  }
+}
 /* LAPTOP/DESKTOP */
 /* LARGE LAPTOP/DESKTOP */
 

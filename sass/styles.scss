@@ -76,7 +76,6 @@ main {
         '. reviews .'
         '. report .'
         '. tech .';
-        
 
         .rating-box {
             text-align: center;
@@ -85,6 +84,8 @@ main {
             padding: 14px 0px;
             background-color: $light-grayish-magenta;
             border-radius: 5px;
+            display: flex;
+            flex-direction: column;
 
             .star-icons {
                 .icon {
@@ -188,6 +189,114 @@ main {
 
 /* LANDSCAPE TABLETS */
 @media only screen and (min-width:768px){
+
+    /* COMMON */
+    body {
+        background: url('../images/bg-pattern-top-desktop.svg') left top no-repeat, 
+        url('../images/bg-pattern-bottom-desktop.svg') right bottom no-repeat;
+    }
+
+    /* MAIN */
+    main {
+        width: 1220px;
+        grid-template-rows: repeat(2, auto);
+        grid-template-columns: 490px 80px 550px;
+        grid-template-areas: 
+        'products-brief . rating'
+        'user-comment user-comment user-comment';
+
+            /* PRODUCTS BRIEF SECTION */
+            .products-brief-section {
+                text-align: left;
+                margin: 90px 0px 10px;  
+
+                h1 {
+                    @include setFontStyle('Spartan-Bold', 2.85rem, $very-dark-magenta);
+                    line-height: 45px;
+                    margin-bottom: 18px;
+                }
+
+                p {
+                    @include setFontStyle('Spartan-Medium', 0.90rem, $dark-grayish-magenta);
+                }
+            }
+
+            /* RATINGS SECTION */
+            .rating-section {
+                width: 550px;
+                margin-top: 140px;
+                margin-bottom: 50px;
+                display: grid;
+                row-gap: 14px;
+                grid-template-rows: repeat(3, auto);
+                grid-template-columns: repeat(3, 180px);
+                grid-template-areas: 
+                'reviews reviews .'
+                'report report report'
+                '. tech tech';
+
+                .rating-box {
+                    text-align: center;
+                    width: 400px;
+                    height: 20px;
+                    padding: 20px 40px 20px 0px;
+                    flex-direction: row;
+                    justify-content: center;
+
+                    h4 {             
+                        @include setFontStyle('Spartan-Bold', 0.80rem,  $very-dark-magenta);
+                        margin-top: 4px;
+                        margin-bottom: 4px;
+                        margin-left: 30px;
+                    }
+                }
+            }
+
+            /* USER COMMENT SECTION */
+            .user-comment-section {
+                margin-top: 28px;
+                display: grid;
+                row-gap: 16px;
+                column-gap: 16px;
+                grid-template-rows: repeat(3, auto);
+                grid-template-columns: repeat(3, auto);
+                grid-template-areas: 
+                'colton . .'
+                'colton irene anne'
+                '. . anne';
+
+                .user-comment-box {
+                    width: 290px;
+                    height: 160px;
+
+                    header {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: start;
+                        margin-bottom: 24px;
+
+                        img {
+                            width: 45px;
+                            height: 45px;
+                            margin-right: 10px;
+                        }
+
+                        .user-profile {
+                            
+                            .user-name {          
+                                @include setFontStyle('Spartan-Bold', null,  $white);
+                                margin: 6px 0px 4px 12px;
+                            }
+
+                            .user-occupation {
+                                @include setFontStyle('Spartan-Regular', null,  $soft-pink);
+                                margin: 4px 0px 0px 12px;
+                            }
+                        }
+                    }
+                }
+            } 
+    }
     
 }
 
