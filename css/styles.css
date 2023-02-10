@@ -44,16 +44,12 @@ main .products-brief-section p {
   line-height: 25px;
 }
 main .rating-section {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   grid-area: rating;
-  display: grid;
-  row-gap: 16px;
-  grid-template-rows: repeat(3, auto);
-  grid-template-columns: repeat(3, auto);
-  grid-template-areas: ". reviews ." ". report ." ". tech .";
+  display: flexbox;
 }
 main .rating-section .rating-box {
+  margin: 16px auto 10px;
   text-align: center;
   width: 330px;
   height: 50px;
@@ -64,16 +60,8 @@ main .rating-section .rating-box {
   flex-direction: column;
 }
 main .rating-section .rating-box .star-icons .icon {
+  margin: 0px 2px;
   content: url("../images/icon-star.svg");
-}
-main .rating-section .rating-box:first-child {
-  grid-area: reviews;
-}
-main .rating-section .rating-box:nth-child(2) {
-  grid-area: report;
-}
-main .rating-section .rating-box:last-child {
-  grid-area: tech;
 }
 main .rating-section .rating-box h4 {
   font-family: "Spartan-Bold";
@@ -82,29 +70,17 @@ main .rating-section .rating-box h4 {
   margin: 12px;
 }
 main .user-comment-section {
-  margin-top: 28px;
+  margin-top: 10px;
   grid-area: user-comment;
-  display: grid;
-  row-gap: 16px;
-  grid-template-rows: repeat(3, auto);
-  grid-template-columns: repeat(3, auto);
-  grid-template-areas: ". colton ." ". irene ." ". anne .";
+  display: flexbox;
 }
 main .user-comment-section .user-comment-box {
+  margin: 16px auto 14px;
   width: 265px;
-  height: 170px;
-  padding: 40px 30px;
+  height: 160px;
+  padding: 45px 30px;
   background-color: hsl(300deg, 43%, 22%);
   border-radius: 10px;
-}
-main .user-comment-section .user-comment-box:first-child {
-  grid-area: colton;
-}
-main .user-comment-section .user-comment-box:nth-child(2) {
-  grid-area: irene;
-}
-main .user-comment-section .user-comment-box:last-child {
-  grid-area: anne;
 }
 main .user-comment-section .user-comment-box header {
   display: flex;
@@ -138,7 +114,8 @@ main .user-comment-section .user-comment-box p {
 /* MEDIA SCREEN */
 /* PORTRAIT TABLETS */
 /* LANDSCAPE TABLETS */
-@media only screen and (min-width: 768px) {
+/* LAPTOP/DESKTOP */
+@media only screen and (min-width: 992px) {
   /* COMMON */
   body {
     background: url("../images/bg-pattern-top-desktop.svg") left top no-repeat, url("../images/bg-pattern-bottom-desktop.svg") right bottom no-repeat;
@@ -146,8 +123,8 @@ main .user-comment-section .user-comment-box p {
   /* MAIN */
   main {
     width: 1220px;
-    grid-template-rows: repeat(2, auto);
-    grid-template-columns: 490px 80px 550px;
+    grid-template-rows: auto 270px;
+    grid-template-columns: 490px 0px 460px;
     grid-template-areas: "products-brief . rating" "user-comment user-comment user-comment";
     /* PRODUCTS BRIEF SECTION */
     /* RATINGS SECTION */
@@ -155,14 +132,14 @@ main .user-comment-section .user-comment-box p {
   }
   main .products-brief-section {
     text-align: left;
-    margin: 90px 0px 10px;
+    margin: 20px 0px 10px;
   }
   main .products-brief-section h1 {
     font-family: "Spartan-Bold";
-    font-size: 2.85rem;
+    font-size: 2.91rem;
     color: hsl(300deg, 43%, 22%);
     line-height: 45px;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
   }
   main .products-brief-section p {
     font-family: "Spartan-Medium";
@@ -170,22 +147,20 @@ main .user-comment-section .user-comment-box p {
     color: hsl(303deg, 10%, 53%);
   }
   main .rating-section {
-    width: 550px;
-    margin-top: 140px;
-    margin-bottom: 50px;
+    margin-top: 60px;
+    margin-bottom: 30px;
     display: grid;
-    row-gap: 14px;
+    row-gap: 70px;
+    column-gap: 90px;
     grid-template-rows: repeat(3, auto);
-    grid-template-columns: repeat(3, 180px);
-    grid-template-areas: "reviews reviews ." "report report report" ". tech tech";
+    grid-template-columns: repeat(3, auto);
   }
   main .rating-section .rating-box {
-    text-align: center;
-    width: 400px;
+    margin: 8px auto 8px;
+    width: 365px;
     height: 20px;
-    padding: 20px 40px 20px 0px;
+    padding: 20px 50px 20px 25px;
     flex-direction: row;
-    justify-content: center;
   }
   main .rating-section .rating-box h4 {
     font-family: "Spartan-Bold";
@@ -195,18 +170,33 @@ main .user-comment-section .user-comment-box p {
     margin-bottom: 4px;
     margin-left: 30px;
   }
+  main .rating-section .rating-box:first-child {
+    grid-area: reviews;
+    grid-row-start: 1;
+    grid-column-start: 1;
+  }
+  main .rating-section .rating-box:nth-child(2) {
+    grid-area: report;
+    grid-row-start: 2;
+    grid-column-start: 2;
+  }
+  main .rating-section .rating-box:last-child {
+    grid-area: tech;
+    grid-row-start: 3;
+    grid-column-start: 3;
+  }
   main .user-comment-section {
-    margin-top: 28px;
+    margin-top: 50px;
+    height: 260px;
     display: grid;
-    row-gap: 16px;
-    column-gap: 16px;
-    grid-template-rows: repeat(3, auto);
+    column-gap: 25px;
     grid-template-columns: repeat(3, auto);
-    grid-template-areas: "colton . ." "colton irene anne" ". . anne";
   }
   main .user-comment-section .user-comment-box {
-    width: 290px;
-    height: 160px;
+    width: 285px;
+    height: 150px;
+    margin: 0px;
+    padding: 40px 35px;
   }
   main .user-comment-section .user-comment-box header {
     display: flex;
@@ -215,22 +205,36 @@ main .user-comment-section .user-comment-box p {
     margin-bottom: 24px;
   }
   main .user-comment-section .user-comment-box header img {
-    width: 45px;
-    height: 45px;
-    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
   }
   main .user-comment-section .user-comment-box header .user-profile .user-name {
     font-family: "Spartan-Bold";
     color: hsl(0deg, 0%, 100%);
-    margin: 6px 0px 4px 12px;
+    margin: 4px 0px 4px 10px;
   }
   main .user-comment-section .user-comment-box header .user-profile .user-occupation {
     font-family: "Spartan-Regular";
     color: hsl(333deg, 80%, 67%);
-    margin: 4px 0px 0px 12px;
+    margin: 6px 0px 0px 10px;
+  }
+  main .user-comment-section .user-comment-box:first-child {
+    align-self: start;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+  main .user-comment-section .user-comment-box:nth-child(2) {
+    align-self: center;
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+  main .user-comment-section .user-comment-box:last-child {
+    align-self: end;
+    grid-column-start: 3;
+    grid-column-end: 4;
   }
 }
-/* LAPTOP/DESKTOP */
 /* LARGE LAPTOP/DESKTOP */
 
 /*# sourceMappingURL=styles.css.map */
